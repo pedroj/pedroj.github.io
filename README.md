@@ -1,4 +1,4 @@
-pedroj.github.com
+[pedroj.github.com](http://pedroj.github.com/)
 =================
 
 Pages repository
