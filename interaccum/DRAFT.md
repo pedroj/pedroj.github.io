@@ -26,9 +26,9 @@ adfjad
 -------
 R code
 ------
-`{r}
+```r
 summary(cars)
-`
+```
 
 
 You can also embed plots, for example:
