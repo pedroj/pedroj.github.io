@@ -3,22 +3,23 @@ ____________________
 
 Pages repository
 
-Visit the [web pages of the projects, here](http://pedroj.github.com/). 
+Visit the [web pages of the projects, here][mygithub]. 
 
 knrjqwelfk
 
 dfsdfg
 
 
-dfb
+dfb fjfjf jfjff{++ tdgdgdg sdajks++}
 
 -------
-
+hgjgh {>>Nota<<}\\[b_2\\]
 
 sdfb
 
 	This is code
 	dfhadf asdf asdf
+	
 
 adfjad
 
@@ -26,8 +27,10 @@ adfjad
 -------
 R code
 ------
-```r
+```R
+# An example of coding
 summary(cars)
+plot(x, y, label= "ppp")
 ```
 
 
@@ -37,5 +40,7 @@ You can also embed plots, for example:
 plot(cars)
 ```
 
+
+[mygithub]: http://pedroj.github.com/
 
 
