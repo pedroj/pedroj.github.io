@@ -7,6 +7,171 @@
     <meta name="description" content="FRUBASE : This is the page for the FRUBASE database, a huge dataset of fleshy fruit traits compiled from bibliographic references and my own work. Data are provided for more than 1000 plant species from all around the world." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<style type="text/css">
+	body, td {
+	   font-family: sans-serif;
+	   background-color: white;
+	   font-size: 14px;
+	   margin: 8px;
+	}
+
+	tt, code, pre {
+	   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+	}
+
+	h1 { 
+	   font-size:2.2em; 
+	}
+
+	h2 { 
+	   font-size:1.8em; 
+	}
+
+	h3 { 
+	   font-size:1.4em; 
+	}
+
+	h4 { 
+	   font-size:1.0em; 
+	}
+
+	h5 { 
+	   font-size:0.9em; 
+	}
+
+	h6 { 
+	   font-size:0.8em; 
+	}
+
+	a:visited {
+	   color: rgb(50%, 0%, 50%);
+	}
+
+	pre {	
+	   margin-top: 0;
+	   max-width: 95%;
+	   border: 1px solid #ccc;
+	   white-space: pre-wrap;
+	}
+
+	pre code {
+	   display: block; padding: 0.5em;
+	}
+
+	code.r, code.cpp {
+	   background-color: #F8F8F8;
+	}
+
+	table, td, th {
+	  border: none;
+	}
+
+	blockquote {
+	   color:#666666;
+	   margin:0;
+	   padding-left: 1em;
+	   border-left: 0.5em #EEE solid;
+	}
+
+	hr {
+	   height: 0px;
+	   border-bottom: none;
+	   border-top-width: thin;
+	   border-top-style: dotted;
+	   border-top-color: #999999;
+	}
+
+	@media print {
+	   * { 
+	      background: transparent !important; 
+	      color: black !important; 
+	      filter:none !important; 
+	      -ms-filter: none !important; 
+	   }
+
+	   body { 
+	      font-size:12pt; 
+	      max-width:100%; 
+	   }
+       
+	   a, a:visited { 
+	      text-decoration: underline; 
+	   }
+
+	   hr { 
+	      visibility: hidden;
+	      page-break-before: always;
+	   }
+
+	   pre, blockquote { 
+	      padding-right: 1em; 
+	      page-break-inside: avoid; 
+	   }
+
+	   tr, img { 
+	      page-break-inside: avoid; 
+	   }
+
+	   img { 
+	      max-width: 100% !important; 
+	   }
+
+	   @page :left { 
+	      margin: 15mm 20mm 15mm 10mm; 
+	   }
+     
+	   @page :right { 
+	      margin: 15mm 10mm 15mm 20mm; 
+	   }
+
+	   p, h2, h3 { 
+	      orphans: 3; widows: 3; 
+	   }
+
+	   h2, h3 { 
+	      page-break-after: avoid; 
+	   }
+	}
+
+	</style>
+
+	<!-- Styles for R syntax highlighter -->
+	<style type="text/css">
+	   pre .operator,
+	   pre .paren {
+	     color: rgb(104, 118, 135)
+	   }
+
+	   pre .literal {
+	     color: rgb(88, 72, 246)
+	   }
+
+	   pre .number {
+	     color: rgb(0, 0, 205);
+	   }
+
+	   pre .comment {
+	     color: rgb(76, 136, 107);
+	   }
+
+	   pre .keyword {
+	     color: rgb(0, 0, 255);
+	   }
+
+	   pre .identifier {
+	     color: rgb(0, 0, 0);
+	   }
+
+	   pre .string {
+	     color: rgb(3, 106, 7);
+	   }
+	</style>
+
+	<!-- R syntax highlighter -->
+	<script type="text/javascript">
+	var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+	hljs.initHighlightingOnLoad();
+	</script>
 
     <title>FRUBASE</title>
   </head>
@@ -16,14 +181,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/pedroj/FRUBASE">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/pedroj/interaccum">View on GitHub</a>
 
-          <h1 id="project_title">FRUBASE</h1>
-          <h2 id="project_tagline">This is the page for the FRUBASE database, a huge dataset of fleshy fruit traits compiled from bibliographic references and my own work. Data are provided for more than 1000 plant species from all around the world.</h2>
+          <h1 id="project_title">INTERACCUM</h1>
+          <h2 id="project_tagline">This is the page for the interactions accumulation analysis project, <code>interaccum</code>. Here I explore how to detemine sampling robustness for interaction networks by analogy with sampling species diversity.</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/pedroj/FRUBASE/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/pedroj/FRUBASE/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/pedroj/interaccum/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pedroj/interaccum/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -31,97 +196,213 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Contents of FRUBASE</h3>
+<h3>Analysis of acumulation curves for species interactions</h3>
 
-<p>VERSION 4.0. DECEMBER 2007. This is the new FRUBASE_2008 version. </p>
+<p>Sampling ecological interactions presents similar challenges, problems, potential biases, and constraints as sampling individuals and species in biodiversity inventories. Interactions are just pairwise relationships among individuals of two unrelated species, such as those among plants and their seed dispersers in frugivory interactions or those among plants and their pollinators. Sampling interactions is a fundamental step to build robustly estimated interaction networks, yet few analyses have attempted a formal approach to their sampling protocols. 
+Here I provide a formal approach to interaction sampling by building an explicit analogue to individuals and species sampling, thus extending diversity-monitoring approaches to the characterization of complex networks of ecological interactions.</p>
 
-<p>All files are plain ASCII text files, with the exception of SUMMARY and FRUWK1. Those with data have TABs as their field delimiters so they can be readily imported in any statistical package or spreadsheet program. The FRUWK1 is readily imported by any spreadsheet application. Please, contact me if you need the files formatted in other ways (e.g., my original SAS datasets, or EXCEL worksheets). </p>
+<p>Interactions in natural ecosystems can be a much better indicator of the richness and diversity of ecosystem functions than a simple list of taxa. Thus, sampling interactions should be a central issue when identifying and diagnosing ecosystem services (e.g., pollination, natural seeding by frugivores, etc.).</p>
 
+<p>When we study mutualistic networks, our goal is to inventor pairwise interactions. Rather than sampling individuals that add species to our inventory, we observe and record feeding observations, visitation, occupancy, presence in pollen loads or in faecal samples, etc., to accumulate pairwise interactions, i.e., lists of species partners. Our goal is to reduce the number of missing cells in our interaction matrices used to tally interactions and to explain the forbidden ones. Interaction accumulation curves (IAC), analogous to species accumulation curves (SAC), can be used to assess the robustness of interactions sampling for plant-animal community datasets. For instance, a random accumulator function (package vegan in R) which finds the mean IAC and its standard deviation from random permutations of the data, or subsampling without replacement can be used to estimate the expected number of pairwise interactions included in a given sampling of records (see below).</p>
 
-<p>1. README - This file. Including a description of the variables and a listing of the literature sources with the numeric codes. </p>
-<p>2. FRUBASE_2008 - The data file itself. Missing data are indicated by dots (.). The file is .xls format and has a header line with variable names as in the list below. The file is sorted by FAMILY, GENUS, and SPECIES names, in ascending order. </p>
-<p>3. FRUBASE_2008.zip - The archives, compressed. </p>
+<h3>Estimating frugivore species richness. A &ldquo;phytocentric&rdquo; sampling</h3>
 
+<p>We use here a dataset of direct census of animal frugivores visiting <em>Cecropia glaziouvi</em> (Cecropiaceae) trees in Intervales, SP, Brazil (March 2012). 
+We use each tree observed as a census, and we accumulate across trees the number of frugivore species recorded visiting the plant. The idea is that as we sample additional individual trees we may get a more complete account of the actual frugivore species interacting with the plant. Eventually, for a large sample size, the number of frugivore species recorded reaches a plateu, that can be considered a robust estimate of the actual spcies richness of the frugivore assemblage.</p>
 
-        <h3>Variable names and descriptions in FRUBASE        </h3>
+<pre><code class="r"># Species (taxa) are in rows. Census samples are the columns.  Code
+# variables are: cla - Class: Aves, Mammalia ord - Order fam - Family gen
+# - Genus sp - Species code - species labels totvis - visits recorded
+# totbic - number of fruits pecked sde - effectiveness Then columns cec18,
+# cec02... inidicate individual plants.  The adjacency matrix entries hold
+# the number of records.
+# 
+# We may eventually need these libraries.
+require(vegan)
+require(ade4)
+# Data input. First a dataset with group codes and labels.
+accum &lt;- read.table(&quot;data/cecropia.txt&quot;, header = TRUE, 
+                       sep = &quot;\t&quot;, dec = &quot;,&quot;, 
+                       na.strings = &quot;NA&quot;)
+# I transpose the dataset (needed for accumulation curves).
+mat &lt;- data.frame(t(accum[, 10:37]))  # Just the adjacency matrix, and we add rownames
+colnames(mat) &lt;- accum$code
+head(mat[, 1:6])
+</code></pre>
 
-<p><code>CL Class</code>
+<pre><code>##       Thr_orna Bro_tiri Eup_chal Pyr_fron Coe_flav Cis_leve
+## cec18      999      400        0      120        6        0
+## cec02     1113        0       20        1        0        0
+## cec03      742        0       20        4        1        1
+## cec25       49        0        0        0        4        0
+## cec22      315      256        4        0        0        0
+## cec06       99       16        0        0        0       16
+</code></pre>
 
-<p><code>SCL SubClass</code>
+<pre><code class="r">specpool(mat)  # This is the species richness estimates
+</code></pre>
 
-<p><code>ORD Order</code>
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se  n
+## All      38 50.5   8.457 52.46    5.052 58.35 44.71   2.873 28
+</code></pre>
 
-<p><code>FAM Family</code></p>
+<pre><code class="r"># Now, plot the species accumulation curves.
+all &lt;- specaccum(mat, method = &quot;random&quot;)
+plot(all, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 45), 
+    ci.col = &quot;lightblue&quot;, main = &quot;Cecropia glaziouvi&quot;, xlab = &quot;Number of trees&quot;, 
+    ylab = &quot;Number of frugivore species&quot;)
+boxplot(all, col = &quot;yellow&quot;, add = TRUE, pch = &quot;+&quot;)
+</code></pre>
 
-<p><code>GEN Genus</code></p>
+<p><img src="images/data.png" alt="plot of chunk accum" /></p>
 
-<p><code>SP Species</code></p>
+<h3>Estimating fruit species richness. A &ldquo;zoocentric&rdquo; sampling</h3>
 
+<p>Here I use a different dataset to assess how the number of interaction records increases with increasing the the number of individual samples. I use a dataset of three <em>Sylvia</em> species, whose diet was analyzed by study of faecal samples. Individual fruit species consumed by the warblers were determined by obtaining faeces from mist-netted birds and identifying seeds and pulp remains. I this way, the number of fruit ingested wa sestimated for a large number of individual birds. I am interested in assessing the robustness of the sampling, i.e., whether increasing the sample size would result in additional species recorded. This type of information can be used with all frugivore species in the community to assess the overall sampling robustnees of an empirical network.</p>
 
-<p><code>REF Reference number - This is my maintenance code for updates.</code></p>
+<pre><code class="r"># Reading the dataset, from a matrix of 1054 samples of three warbler
+# species: Sylvia atricapilla, Sylvia borin, and Sylvia melanocephala.
+# Data input. First a dataset with group codes and labels.
+sylvia &lt;- read.table(&quot;data/hr_sylvia.txt&quot;, header = TRUE, sep = &quot;\t&quot;, dec = &quot;.&quot;, 
+    na.strings = &quot;NA&quot;)
+# By species
+satr &lt;- sylvia[sylvia$species == &quot;SATR&quot;, ][, 4:20]
+sbor &lt;- sylvia[sylvia$species == &quot;SBOR&quot;, ][, 4:20]
+smel &lt;- sylvia[sylvia$species == &quot;SMEL&quot;, ][, 4:20]
+#
+specpool(satr)  # Fruit species richness estimates
+</code></pre>
 
-<p><code>NEWREF New Reference number - These are the refs numbers in the files REFS and SUMMARY.</code></p>
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      15   15       0    16   0.9984    17 15.44  0.5453 643
+</code></pre>
 
-<p><code>FAMLAB Family Label - An 8-character label for family.</code></p>
+<pre><code class="r">specpool(sbor)
+</code></pre>
 
-<p><code>GENLAB Genus Label - An 8-character label for genus.</code></p>
+<pre><code>##     Species  chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      13 13.25  0.7289 13.99   0.9942 13.02 13.71  0.7319 173
+</code></pre>
 
-<p><code>SPLAB Species Label - An 8-character label for species.</code></p>
+<pre><code class="r">specpool(smel)
+</code></pre>
 
-<p><code>COD Species code - A 5-character code for the species.</code></p>
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      13   15   3.742 14.99    1.408 15.99 13.93  0.8036 238
+</code></pre>
 
-<p><code>DISPCAT Disperser type category - BIRDS, MIXED, MAMMALS.</code></p>
+<pre><code class="r"># Now, plot the species accumulation curves.  Function to estimate
+# accumulation curves and plot
+spacc &lt;- function(data, thetitle) {
+    spaccum &lt;- specaccum(data, method = &quot;random&quot;)
+    plot(spaccum, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 
+        20), ci.col = &quot;lightblue&quot;, main = thetitle, xlab = &quot;Number of samples&quot;, 
+        ylab = &quot;Number of fruit species&quot;)
+    # NOT RUN: boxplot(spaccum, col=&#39;yellow&#39;, add=TRUE, pch=&#39;+&#39;)
+}
+par(mfrow = c(3, 1))
+spacc(satr, &quot;Sylvia atricapilla&quot;)
+spacc(sbor, &quot;Sylvia borin&quot;)
+spacc(smel, &quot;Sylvia mlanocephala&quot;)
+</code></pre>
 
-<p><code>DISP Disperser type - Finer categorization. Not yet completed. Needs revision.</code></p>
+<p><img src="images/sylvia.png" alt="plot of chunk accum" /></p>
 
-<p><code>AREA Geographic area - Major geographic areas of the data sources.</code></p>
+<h2>Accumulation curves for interactions</h2>
 
-<p><code>MEurope: Mediterranean Europe (also includes Israel and Morocco.</code></p>
+<p>Now suppose we sample an interaction network. We get data in different samples (i.e., census days) where we record pairwise species interactions. So, each sampling is our adjacency matrix filled up with just those interactions recorded in a particular day. For example, imagine we sample a communtiy with <code>A= 5</code> animal species and <code>P= 8</code> plant species:</p>
 
-<p><code>NEurope: Temperate and Northern Europe.</code></p>
+<pre><code class="r"># Create dummy datasets with pairwise interactions recorded in each
+# sampling.  List of the sampled matrices.  Day 1- getting the pairwise
+# interaction labels.
+source(&quot;vectorize.R&quot;)
+source(&quot;matfills.R&quot;)  # This creates a randomly-filled matrix
+M1 &lt;- randommat(5, 8)
+colnames(M1) &lt;- c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;, &quot;P7&quot;, &quot;P8&quot;)
+rownames(M1) &lt;- c(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;)
+MM &lt;- vectorize(M1)
+colnames(MM) &lt;- c(&quot;A&quot;, &quot;P&quot;, &quot;I&quot;)
+head(MM)
+</code></pre>
 
-<p><code>NAmerica: North America, excl. Southern Mexico.</code></p>
+<pre><code>##    A  P I
+## 1 A1 P1 0
+## 2 A1 P2 0
+## 3 A1 P3 0
+## 4 A1 P4 0
+## 5 A1 P5 0
+## 6 A1 P6 0
+</code></pre>
 
-<p><code>NTAmerica: Neotropical America, incl. Southern Mexico.</code></p>
+<pre><code class="r">lab &lt;- paste(MM$A, &quot;-&quot;, MM$P)
+MM &lt;- data.frame(lab)
+# Generate the additional matrices
+m &lt;- function() {
+    mat &lt;- randommat(5, 8)
+    colnames(mat) &lt;- c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;, &quot;P7&quot;, &quot;P8&quot;)
+    rownames(mat) &lt;- c(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;)
+    return(mat)
+}
+# List of matrices (50 samples)
+mlist &lt;- list(m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m())
+# mlist should be a list of observed matrices, corresponding to different
+# sampling events (censuses, days, etc.)
+tt &lt;- sapply(mlist, function(m) cbind(vectorize(m)), simplify = FALSE, USE.NAMES = FALSE)
+# Create a dataframe with the pairwise interactions recorded in each
+# sample.
+ttt &lt;- as.data.frame(unlist(tt, recursive = F))
+ttt &lt;- ttt[, c(seq(from = 3, to = 150, by = 3))]
+MM &lt;- data.frame(cbind(MM, ttt))
+colnames(MM) &lt;- c(&quot;Pairwise&quot;, rep(&quot;sample&quot;, 50))
+head(MM[, 1:8])
+</code></pre>
 
-<p><code>Africa: Africa, south of Sahara.</code></p>
+<pre><code>##   Pairwise sample sample.1 sample.2 sample.3 sample.4 sample.5 sample.6
+## 1  A1 - P1      1        1        0        0        0        0        0
+## 2  A1 - P2      0        0        0        0        0        1        0
+## 3  A1 - P3      0        0        0        0        0        0        0
+## 4  A1 - P4      1        0        0        0        0        0        0
+## 5  A1 - P5      1        0        0        0        0        0        1
+## 6  A1 - P6      0        1        0        0        0        0        0
+</code></pre>
 
-<p><code>Australasia: Australia, Malaysia, New Guinea, and whole SouthEast Asia.</code></p>
+<p>Our final dataset now lists all the potential pairwise interactions and the records we got in each sampling day. Each of the columns lists the pairwise interactions recorded (value= 1) in a particular sample. 
+Now we can use accumulation functions to explore how increasing the sampling results in additional distinct interactions being sampled.
+It is as a sampling of diversity, but instead of species we are recording pairwise interactions.</p>
 
+<pre><code class="r"># Specify only the numerical columns!
+mat &lt;- t(MM[, 2:ncol(MM)])  # Note that I transpose the matrix to get
+# samples as rows.
+specpool(mat)  # Statistics
+</code></pre>
 
-<p><code>FRUIT Fruit type - Type of fruit. Not completed yet. Needs revision.</code></p>
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2 boot boot.se  n
+## All      39   41   3.742 40.96    1.386 41.94 40.4   1.166 50
+</code></pre>
 
-<p><code>LENG Fruit length (mm)</code></p>
+<pre><code class="r">all &lt;- specaccum(mat, method = &quot;random&quot;)
+plot(all, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 40), 
+    ci.col = &quot;lightblue&quot;, main = &quot;Accumulation analysis - Interactions&quot;, xlab = &quot;Number of  censuses/samples&quot;, 
+    ylab = &quot;Number of distinct pairwise interactions&quot;)
+boxplot(all, col = &quot;yellow&quot;, add = TRUE, pch = &quot;+&quot;)
+</code></pre>
 
-<p><code>DIAM Fruit diameter (mm)</code></p>
+<p><img src="images/pairwise_interactions_2.png" alt="plot of chunk accum" /></p>
 
-<p><code>FRFM Fruit fresh mass (g)</code></p>
+<h2>Suggested references:</h2>
 
-<p><code>PDM Dry mass of pulp per fruit (g)</code></p>
+<ul>
+<li>Jordano, P. 1987. Patterns of mutualistic interactions in pollination and seed dispersal: connectance, dependence asymmetries, and coevolution. The American Naturalist 129: 657-677.</li>
+<li>Gotelli, N.J., and R.K. Colwell. 2001. Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness. Ecology Letters 4: 379-391.</li>
+<li>Jordano, P., D. V&aacute;zquez, and J. Bascompte. 2009. Redes complejas de interacciones planta-animal. Pages 17-41 in: R. Medel, R. Dirzo, and R. Zamora, Eds. Ecolog&iacute;a y evoluci&oacute;n de interacciones planta-animal. Editorial Universitaria. Editorial Universitaria, Santiago, Chile.</li>
+<li>Chao, A., R.K. Colwell, C.W. Lin, and N.J. Gotelli. 2009. Sufficient sampling for asymptotic minimum species richness estimators. Ecology 90: 1125-1133.</li>
+<li>Gibson, R. H., B. Knott, T. Eberlein, and J. Memmott. 2011. Sampling method influences the structure of plant-pollinator networks. Oikos 120: 822-831.</li>
+<li>Chacoff, N. P., D. P. V&aacute;zquez, S. B. Lom&aacute;scolo, E. L. Stevani, J. Dorado, and B. Padr&oacute;n. 2012. Evaluating sampling completeness in a desert plant-pollinator network. Journal of Animal Ecology 81: 190-200.</li>
 
-<p><code>SDM Dry mass of seed(s) per fruit (g)</code></p>
-
-<p><code>SEEDS Number of seeds per fruit</code></p>
-
-<p><code>SEEDM Seed dry mass (g)</code></p>
-
-<p><code>RY Relative yield of pulp (PDM/FRFM*100)</code></p>
-
-<p><code>KJG Specific energy content of pulp (kJ/g)</code></p>
-
-<p><code>KJFR Total energy content per fruit (kJ)</code></p>
-
-<p><code>PCW Percent water content of fruit</code></p>
-
-<p><code>LIP Proportion of lipids (per g dry pulp)</code></p>
-
-<p><code>PRO Proportion of protein (per g dry pulp)</code></p>
-
-<p><code>NSC Proportion of non-structural carbohydrates (per g dry pulp)</code></p>
-
-<p><code>ASH Proportion of minerals (per g dry pulp)</code></p>
-
-<p><code>FIB Proportion of acid-detergent fiber (per g dry pulp)</code></p>
+</ul>
 
       </section>
     </div>
