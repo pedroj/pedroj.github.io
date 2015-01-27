@@ -1,0 +1,1 @@
+/Users/pedro/.Trash/highlight/CHANGES.md
