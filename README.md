@@ -1,7 +1,7 @@
-[pedroj.github.com](http://pedroj.github.com/)
+[pedroj.github.com](http://pedroj.github.io/)
 =================
 
 Pages repository
 
-Visit the [web pages of the projects, here](http://pedroj.github.com/). 
+Visit the [web pages of the projects, here](http://pedroj.github.io/). 
 
