@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="INTERACCUM: This is the page for the interactions accumulation analysis project, interaccum." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<style type="text/css">
+	body, td {
+	   font-family: sans-serif;
+	   background-color: white;
+	   font-size: 14px;
+	   margin: 8px;
+	}
+
+	tt, code, pre {
+	   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+	}
+
+	h1 { 
+	   font-size:2.2em; 
+	}
+
+	h2 { 
+	   font-size:1.8em; 
+	}
+
+	h3 { 
+	   font-size:1.4em; 
+	}
+
+	h4 { 
+	   font-size:1.0em; 
+	}
+
+	h5 { 
+	   font-size:0.9em; 
+	}
+
+	h6 { 
+	   font-size:0.8em; 
+	}
+
+	a:visited {
+	   color: rgb(50%, 0%, 50%);
+	}
+
+	pre {	
+	   margin-top: 0;
+	   max-width: 95%;
+	   border: 1px solid #ccc;
+	   white-space: pre-wrap;
+	}
+
+	pre code {
+	   display: block; padding: 0.5em;
+	}
+
+	code.r, code.cpp {
+	   background-color: #F8F8F8;
+	}
+
+	table, td, th {
+	  border: none;
+	}
+
+	blockquote {
+	   color:#666666;
+	   margin:0;
+	   padding-left: 1em;
+	   border-left: 0.5em #EEE solid;
+	}
+
+	hr {
+	   height: 0px;
+	   border-bottom: none;
+	   border-top-width: thin;
+	   border-top-style: dotted;
+	   border-top-color: #999999;
+	}
+
+	@media print {
+	   * { 
+	      background: transparent !important; 
+	      color: black !important; 
+	      filter:none !important; 
+	      -ms-filter: none !important; 
+	   }
+
+	   body { 
+	      font-size:12pt; 
+	      max-width:100%; 
+	   }
+       
+	   a, a:visited { 
+	      text-decoration: underline; 
+	   }
+
+	   hr { 
+	      visibility: hidden;
+	      page-break-before: always;
+	   }
+
+	   pre, blockquote { 
+	      padding-right: 1em; 
+	      page-break-inside: avoid; 
+	   }
+
+	   tr, img { 
+	      page-break-inside: avoid; 
+	   }
+
+	   img { 
+	      max-width: 100% !important; 
+	   }
+
+	   @page :left { 
+	      margin: 15mm 20mm 15mm 10mm; 
+	   }
+     
+	   @page :right { 
+	      margin: 15mm 10mm 15mm 20mm; 
+	   }
+
+	   p, h2, h3 { 
+	      orphans: 3; widows: 3; 
+	   }
+
+	   h2, h3 { 
+	      page-break-after: avoid; 
+	   }
+	}
+
+	</style>
+
+	<!-- Styles for R syntax highlighter -->
+	<style type="text/css">
+	   pre .operator,
+	   pre .paren {
+	     color: rgb(104, 118, 135)
+	   }
+
+	   pre .literal {
+	     color: rgb(88, 72, 246)
+	   }
+
+	   pre .number {
+	     color: rgb(0, 0, 205);
+	   }
+
+	   pre .comment {
+	     color: rgb(76, 136, 107);
+	   }
+
+	   pre .keyword {
+	     color: rgb(0, 0, 255);
+	   }
+
+	   pre .identifier {
+	     color: rgb(0, 0, 0);
+	   }
+
+	   pre .string {
+	     color: rgb(3, 106, 7);
+	   }
+	</style>
+
+<!-- R syntax highlighter -->
+<link rel="stylesheet" href="stylesheets/styles/xcode.css">
+<script src="javascripts/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-------------------------->
+    <title>interaccum</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/pedroj/interaccum">View on GitHub</a>
+
+          <h1 id="project_title">INTERACCUM</h1>
+          <h2 id="project_tagline">This is the page for the interactions accumulation analysis project, <code>interaccum</code>. Here I explore how to detemine sampling robustness for interaction networks by analogy with sampling species diversity.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/pedroj/interaccum/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/pedroj/interaccum/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h3>Analysis of acumulation curves for species interactions</h3>
+
+<p>Sampling ecological interactions presents similar challenges, problems, potential biases, and constraints as sampling individuals and species in biodiversity inventories. Interactions are just pairwise relationships among individuals of two unrelated species, such as those among plants and their seed dispersers in frugivory interactions or those among plants and their pollinators. Sampling interactions is a fundamental step to build robustly estimated interaction networks, yet few analyses have attempted a formal approach to their sampling protocols. 
+Here I provide a formal approach to interaction sampling by building an explicit analogue to individuals and species sampling, thus extending diversity-monitoring approaches to the characterization of complex networks of ecological interactions.</p>
+
+<p>Interactions in natural ecosystems can be a much better indicator of the richness and diversity of ecosystem functions than a simple list of taxa. Thus, sampling interactions should be a central issue when identifying and diagnosing ecosystem services (e.g., pollination, natural seeding by frugivores, etc.).</p>
+
+<p>When we study mutualistic networks, our goal is to inventor pairwise interactions. Rather than sampling individuals that add species to our inventory, we observe and record feeding observations, visitation, occupancy, presence in pollen loads or in faecal samples, etc., to accumulate pairwise interactions, i.e., lists of species partners. Our goal is to reduce the number of missing cells in our interaction matrices used to tally interactions and to explain the forbidden ones. Interaction accumulation curves (IAC), analogous to species accumulation curves (SAC), can be used to assess the robustness of interactions sampling for plant-animal community datasets. For instance, a random accumulator function (package vegan in R) which finds the mean IAC and its standard deviation from random permutations of the data, or subsampling without replacement can be used to estimate the expected number of pairwise interactions included in a given sampling of records (see below).</p>
+
+<h3>Estimating frugivore species richness. A &ldquo;phytocentric&rdquo; sampling</h3>
+
+<p>We use here a dataset of direct census of animal frugivores visiting <em>Cecropia glaziouvi</em> (Cecropiaceae) trees in Intervales, SP, Brazil (March 2012). 
+We use each tree observed as a census, and we accumulate across trees the number of frugivore species recorded visiting the plant. The idea is that as we sample additional individual trees we may get a more complete account of the actual frugivore species interacting with the plant. Eventually, for a large sample size, the number of frugivore species recorded reaches a plateu, that can be considered a robust estimate of the actual spcies richness of the frugivore assemblage.</p>
+
+<pre><code class="r"># Species (taxa) are in rows. Census samples are the columns.  Code
+# variables are: cla - Class: Aves, Mammalia ord - Order fam - Family gen
+# - Genus sp - Species code - species labels totvis - visits recorded
+# totbic - number of fruits pecked sde - effectiveness Then columns cec18,
+# cec02... inidicate individual plants.  The adjacency matrix entries hold
+# the number of records.
+# 
+# We may eventually need these libraries.
+require(vegan)
+require(ade4)
+# Data input. First a dataset with group codes and labels.
+accum &lt;- read.table(&quot;data/cecropia.txt&quot;, header = TRUE, 
+                       sep = &quot;\t&quot;, dec = &quot;,&quot;, 
+                       na.strings = &quot;NA&quot;)
+# I transpose the dataset (needed for accumulation curves).
+mat &lt;- data.frame(t(accum[, 10:37]))  # Just the adjacency matrix, and we add rownames
+colnames(mat) &lt;- accum$code
+head(mat[, 1:6])
+</code></pre>
+
+<pre><code>##       Thr_orna Bro_tiri Eup_chal Pyr_fron Coe_flav Cis_leve
+## cec18      999      400        0      120        6        0
+## cec02     1113        0       20        1        0        0
+## cec03      742        0       20        4        1        1
+## cec25       49        0        0        0        4        0
+## cec22      315      256        4        0        0        0
+## cec06       99       16        0        0        0       16
+</code></pre>
+
+<pre><code class="r">specpool(mat)  # This is the species richness estimates
+</code></pre>
+
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se  n
+## All      38 50.5   8.457 52.46    5.052 58.35 44.71   2.873 28
+</code></pre>
+
+<pre><code class="r"># Now, plot the species accumulation curves.
+all &lt;- specaccum(mat, method = &quot;random&quot;)
+plot(all, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 45), 
+    ci.col = &quot;lightblue&quot;, main = &quot;Cecropia glaziouvi&quot;, xlab = &quot;Number of trees&quot;, 
+    ylab = &quot;Number of frugivore species&quot;)
+boxplot(all, col = &quot;yellow&quot;, add = TRUE, pch = &quot;+&quot;)
+</code></pre>
+
+<p><img src="images/data.png" alt="plot of chunk accum" /></p>
+
+<h3>Estimating fruit species richness. A &ldquo;zoocentric&rdquo; sampling</h3>
+
+<p>Here I use a different dataset to assess how the number of interaction records increases with increasing the the number of individual samples. I use a dataset of three <em>Sylvia</em> species, whose diet was analyzed by study of faecal samples. Individual fruit species consumed by the warblers were determined by obtaining faeces from mist-netted birds and identifying seeds and pulp remains. I this way, the number of fruit ingested wa sestimated for a large number of individual birds. I am interested in assessing the robustness of the sampling, i.e., whether increasing the sample size would result in additional species recorded. This type of information can be used with all frugivore species in the community to assess the overall sampling robustnees of an empirical network.</p>
+
+<pre><code class="r"># Reading the dataset, from a matrix of 1054 samples of three warbler
+# species: Sylvia atricapilla, Sylvia borin, and Sylvia melanocephala.
+# Data input. First a dataset with group codes and labels.
+sylvia &lt;- read.table(&quot;data/hr_sylvia.txt&quot;, header = TRUE, sep = &quot;\t&quot;, dec = &quot;.&quot;, 
+    na.strings = &quot;NA&quot;)
+# By species
+satr &lt;- sylvia[sylvia$species == &quot;SATR&quot;, ][, 4:20]
+sbor &lt;- sylvia[sylvia$species == &quot;SBOR&quot;, ][, 4:20]
+smel &lt;- sylvia[sylvia$species == &quot;SMEL&quot;, ][, 4:20]
+#
+specpool(satr)  # Fruit species richness estimates
+</code></pre>
+
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      15   15       0    16   0.9984    17 15.44  0.5453 643
+</code></pre>
+
+<pre><code class="r">specpool(sbor)
+</code></pre>
+
+<pre><code>##     Species  chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      13 13.25  0.7289 13.99   0.9942 13.02 13.71  0.7319 173
+</code></pre>
+
+<pre><code class="r">specpool(smel)
+</code></pre>
+
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2  boot boot.se   n
+## All      13   15   3.742 14.99    1.408 15.99 13.93  0.8036 238
+</code></pre>
+
+<pre><code class="r"># Now, plot the species accumulation curves.  Function to estimate
+# accumulation curves and plot
+spacc &lt;- function(data, thetitle) {
+    spaccum &lt;- specaccum(data, method = &quot;random&quot;)
+    plot(spaccum, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 
+        20), ci.col = &quot;lightblue&quot;, main = thetitle, xlab = &quot;Number of samples&quot;, 
+        ylab = &quot;Number of fruit species&quot;)
+    # NOT RUN: boxplot(spaccum, col=&#39;yellow&#39;, add=TRUE, pch=&#39;+&#39;)
+}
+par(mfrow = c(3, 1))
+spacc(satr, &quot;Sylvia atricapilla&quot;)
+spacc(sbor, &quot;Sylvia borin&quot;)
+spacc(smel, &quot;Sylvia mlanocephala&quot;)
+</code></pre>
+
+<p><img src="images/sylvia.png" alt="plot of chunk accum" /></p>
+
+<h2>Accumulation curves for interactions</h2>
+
+<p>Now suppose we sample an interaction network. We get data in different samples (i.e., census days) where we record pairwise species interactions. So, each sampling is our adjacency matrix filled up with just those interactions recorded in a particular day. For example, imagine we sample a communtiy with <code>A= 5</code> animal species and <code>P= 8</code> plant species:</p>
+
+<pre><code class="r"># Create dummy datasets with pairwise interactions recorded in each
+# sampling.  List of the sampled matrices.  Day 1- getting the pairwise
+# interaction labels.
+source(&quot;vectorize.R&quot;)
+source(&quot;matfills.R&quot;)  # This creates a randomly-filled matrix
+M1 &lt;- randommat(5, 8)
+colnames(M1) &lt;- c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;, &quot;P7&quot;, &quot;P8&quot;)
+rownames(M1) &lt;- c(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;)
+MM &lt;- vectorize(M1)
+colnames(MM) &lt;- c(&quot;A&quot;, &quot;P&quot;, &quot;I&quot;)
+head(MM)
+</code></pre>
+
+<pre><code>##    A  P I
+## 1 A1 P1 0
+## 2 A1 P2 0
+## 3 A1 P3 0
+## 4 A1 P4 0
+## 5 A1 P5 0
+## 6 A1 P6 0
+</code></pre>
+
+<pre><code class="r">lab &lt;- paste(MM$A, &quot;-&quot;, MM$P)
+MM &lt;- data.frame(lab)
+# Generate the additional matrices
+m &lt;- function() {
+    mat &lt;- randommat(5, 8)
+    colnames(mat) &lt;- c(&quot;P1&quot;, &quot;P2&quot;, &quot;P3&quot;, &quot;P4&quot;, &quot;P5&quot;, &quot;P6&quot;, &quot;P7&quot;, &quot;P8&quot;)
+    rownames(mat) &lt;- c(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;, &quot;A5&quot;)
+    return(mat)
+}
+# List of matrices (50 samples)
+mlist &lt;- list(m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), m(), 
+    m(), m(), m(), m(), m(), m(), m())
+# mlist should be a list of observed matrices, corresponding to different
+# sampling events (censuses, days, etc.)
+tt &lt;- sapply(mlist, function(m) cbind(vectorize(m)), simplify = FALSE, USE.NAMES = FALSE)
+# Create a dataframe with the pairwise interactions recorded in each
+# sample.
+ttt &lt;- as.data.frame(unlist(tt, recursive = F))
+ttt &lt;- ttt[, c(seq(from = 3, to = 150, by = 3))]
+MM &lt;- data.frame(cbind(MM, ttt))
+colnames(MM) &lt;- c(&quot;Pairwise&quot;, rep(&quot;sample&quot;, 50))
+head(MM[, 1:8])
+</code></pre>
+
+<pre><code>##   Pairwise sample sample.1 sample.2 sample.3 sample.4 sample.5 sample.6
+## 1  A1 - P1    1      1      0      0      0      0      0
+## 2  A1 - P2    0      0      0      0      0      1      0
+## 3  A1 - P3    0      0      0      0      0      0      0
+## 4  A1 - P4    1      0      0      0      0      0      0
+## 5  A1 - P5    1      0      0      0      0      0      1
+## 6  A1 - P6    0      1      0      0      0      0      0
+</code></pre>
+
+<p>Our final dataset now lists all the potential pairwise interactions and the records we got in each sampling day. Each of the columns lists the pairwise interactions recorded (value= 1) in a particular sample. 
+Now we can use accumulation functions to explore how increasing the sampling results in additional distinct interactions being sampled.
+It is as a sampling of diversity, but instead of species we are recording pairwise interactions.</p>
+
+<pre><code class="r"># Specify only the numerical columns!
+mat &lt;- t(MM[, 2:ncol(MM)])  # Note that I transpose the matrix to get
+# samples as rows.
+specpool(mat)  # Statistics
+</code></pre>
+
+<pre><code>##     Species chao chao.se jack1 jack1.se jack2 boot boot.se  n
+## All      39   41   3.742 40.96    1.386 41.94 40.4   1.166 50
+</code></pre>
+
+<pre><code class="r">all &lt;- specaccum(mat, method = &quot;random&quot;)
+plot(all, ci.type = &quot;poly&quot;, col = &quot;blue&quot;, lwd = 2, ci.lty = 0, ylim = c(0, 40), 
+    ci.col = &quot;lightblue&quot;, main = &quot;Accumulation analysis - Interactions&quot;, xlab = &quot;Number of  censuses/samples&quot;, 
+    ylab = &quot;Number of distinct pairwise interactions&quot;)
+boxplot(all, col = &quot;yellow&quot;, add = TRUE, pch = &quot;+&quot;)
+</code></pre>
+
+<p><img src="images/pairwise_interactions_2.png" alt="plot of chunk accum" /></p>
+
+<h2>Suggested references:</h2>
+
+<ul>
+<li>Jordano, P. 1987. Patterns of mutualistic interactions in pollination and seed dispersal: connectance, dependence asymmetries, and coevolution. The American Naturalist 129: 657-677.</li>
+<li>Gotelli, N.J., and R.K. Colwell. 2001. Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness. Ecology Letters 4: 379-391.</li>
+<li>Jordano, P., D. V&aacute;zquez, and J. Bascompte. 2009. Redes complejas de interacciones planta-animal. Pages 17-41 in: R. Medel, R. Dirzo, and R. Zamora, Eds. Ecolog&iacute;a y evoluci&oacute;n de interacciones planta-animal. Editorial Universitaria. Editorial Universitaria, Santiago, Chile.</li>
+<li>Chao, A., R.K. Colwell, C.W. Lin, and N.J. Gotelli. 2009. Sufficient sampling for asymptotic minimum species richness estimators. Ecology 90: 1125-1133.</li>
+<li>Gibson, R. H., B. Knott, T. Eberlein, and J. Memmott. 2011. Sampling method influences the structure of plant-pollinator networks. Oikos 120: 822-831.</li>
+<li>Chacoff, N. P., D. P. V&aacute;zquez, S. B. Lom&aacute;scolo, E. L. Stevani, J. Dorado, and B. Padr&oacute;n. 2012. Evaluating sampling completeness in a desert plant-pollinator network. Journal of Animal Ecology 81: 190-200.</li>
+
+</ul>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
