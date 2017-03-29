@@ -20,7 +20,7 @@
 		<meta name="generator" content="RapidWeaver" />
 		
 
-	<link rel="stylesheet" type="text/css" media="all" href="rw_common/themes/foundation/consolidated-0.css?rwcache=512438878" />
+	<link rel="stylesheet" type="text/css" media="all" href="rw_common/themes/foundation/consolidated-0.css?rwcache=512440665" />
 		
 
 	<head>
@@ -28,8 +28,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <meta name="description" content="Networks in D3: This is a page with examples of plant-animal interaction networks in D3." />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="resources/stylesheets/stylesheet.css?rwcache=512438878?rwcache=512438878">
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css?rwcache=512438878">
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/stylesheets/stylesheet.css?rwcache=512440665?rwcache=512440665">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css?rwcache=512440665">
 
 	<style type="text/css">
 	body, td {
@@ -193,8 +193,8 @@
 
 	<!-- R syntax highlighter -->
 <!-- R syntax highlighter -->
-<link rel="stylesheet" href="resources/stylesheets/styles/xcode.css?rwcache=512438878">
-<script src="resources/javascripts/highlight/highlight.pack.js?rwcache=512438878"></script>
+<link rel="stylesheet" href="resources/stylesheets/styles/xcode.css?rwcache=512440665">
+<script src="resources/javascripts/highlight/highlight.pack.js?rwcache=512440665"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <!-------------------------->
 	</script>
@@ -208,8 +208,8 @@
 	  <script src="rw_common/themes/foundation/ie8.js"></script>
 	<![endif]-->
 
-			<link rel='stylesheet' type='text/css' media='all' href='rw_common/plugins/stacks/stacks.css?rwcache=512438878' />
-		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page0.css?rwcache=512438878' />
+			<link rel='stylesheet' type='text/css' media='all' href='rw_common/plugins/stacks/stacks.css?rwcache=512440665' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page0.css?rwcache=512440665' />
 		
 		
 		
@@ -469,21 +469,21 @@ hr.ig<- bip_init_igraph(hr)         # igraph object
 
 <h2> Functions to plot network graphs</h2> 
 
-The ggbipart package includes the following functions:
+The <code>ggbipart</code> package includes the following functions:
 <br>
 
 
 <h4> bip_qtplot</h4> 
 
-Simple function to plot a weighted bipartite network in network object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type network.
+Simple function to plot a weighted bipartite network in network object. The input is just the weighted (quantitative) adjacency matrix of a two-mode network. Uses objects of type <code>network</code>.
 
 <h4>bip_railway</h4>
 
-Simple function to plot a bipartite network with the classic layout of two parallel sets of nodes (as in the bipartite package).
+Simple function to plot a bipartite network with the classic layout of two parallel sets of nodes (as in the <code>bipartite</code> package).
 
 <h4>bip_ggnet</h4>
 
-Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the ggnet package extensively. 
+Plotting bipartite networks from the adjacency matrix of a two-mode network. It uses the <code>ggnet</code> package extensively. 
 
 <h4>bip_igplot</h4> 
 
@@ -506,15 +506,15 @@ Bipartite networks with ggnet2 using the ggplot2 framework
 <br>
 
 
-We first initialize the bipartite network; then use the adjacency matrix to compute scaled weighted edges with function edgewt. This is based in code from Francois Briatte, using package ggnet, function ggnet2.
+We first initialize the bipartite network; then use the adjacency matrix to compute scaled weighted edges with function <code>edgewt</code>. This is based in code from Francois Briatte, using package <code>ggnet</code>, function <code>ggnet2</code>.
 
-ggnet2 automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form [alpha, color, shape, size] = “mode”, which will mark the primary mode as "actor" and the secondary mode as  "event".
+<code>ggnet2</code> automatically detects two-mode graphs from their bipartite network attribute. To simplify the plotting of each mode, it understands arguments of the form <code>[alpha, color, shape, size] = “mode”</code>, which will mark the primary mode as "actor" and the secondary mode as  "event".
 
 <h3>Node colors</h3>
 
-Let’s now assign a vertex attribute called phono, which indicates whether the name of the vertex is a vowel or a consonant:
+Let’s now assign vertex attributes obtained from the attributes file.
 
-This attribute can be passed to ggnet2 to indicate that the nodes belong to a group. All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
+The attributes can be passed to <code>ggnet2</code> to indicate that the nodes belong to a group. or have a given qualitative or quantitative attribute All the user has to do is to pass the name of the vertex attribute to the color argument, which will find it in the list of vertex attributes and use it to map the colors of the nodes:
 <br><br>
 
 <pre><code class="r">
@@ -537,7 +537,7 @@ nch.net %v% "FrDiam"= nch_attr$g
 
 <h3>A simple graph</h3>
 
-To use the mode of the nodes as the basis for their colors, all the user has to do is to pass the color= “mode” argument, and then to style the “actor” and “event” values:
+This graph uses function <code>bip_railway</code>:
 
 <h4>Unweighted</h4>
 
@@ -561,7 +561,7 @@ g+ coord_flip()
 
 <h4>Weighted</h4>
 
-Label the edge weights directly into the edges of the graph.
+Label the edge weights directly into the edges of the graph; uses the <code>bip_ggnet</code>.
 <br><br>
 
 <pre><code class="r">
@@ -723,16 +723,13 @@ sessionInfo()
 <hr>
 
 
+<h2>Acknowledgements</h2>
 
+This code benifits from comments and <code>R</code> code sharing by François Briatte and Scott Chamberlain.<br>
 
+Best wishes, and happy computing! -- Pedro<br><br>
 
-
-
-
-
-
-
-
+Last Updated: <code>Jueves, 16 Julio, 2013 00:35 AM</code> On line since 1989. Pedro Jordano
 
 
   </body>
@@ -768,7 +765,7 @@ sessionInfo()
 </div></div></div></div>
 
 
-<script src="rw_common/themes/foundation/foundation.js?rwcache=512438878"></script>
+<script src="rw_common/themes/foundation/foundation.js?rwcache=512440665"></script>
 
 
 <!--[if lt IE 9]>
