@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Networks in D3</title>
+
+    <meta name="theme-version" content="1.3.3" />
+    <meta name="foundation-version" content="5.5.1" />
+    <meta name="jquery-version" content="2.1.3" />
+    <meta name="modernizr-version" content="2.8.3" />
+
+	<!-- Foundation Theme for RapidWeaver by Joe Workman -->
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="index, follow" />
+		<meta name="generator" content="RapidWeaver" />
+		
+
+	<link rel="stylesheet" type="text/css" media="all" href="rw_common/themes/foundation/consolidated-0.css?rwcache=500169726" />
+		
+
+	<head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Networks in D3: This is a page with examples of plant-animal interaction networks in D3." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="resources/stylesheets/stylesheet.css?rwcache=500169726?rwcache=500169726">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css?rwcache=500169726">
+
+	<style type="text/css">
+	body, td {
+	   font-family: sans-serif;
+	   background-color: white;
+	   font-size: 14px;
+	   margin: 8px;
+	}
+
+	tt, code, pre {
+	   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+	}
+
+	h1 { 
+	   font-size:2.2em; 
+	}
+
+	h2 { 
+	   font-size:1.8em; 
+	}
+
+	h3 { 
+	   font-size:1.4em; 
+	}
+
+	h4 { 
+	   font-size:1.0em; 
+	}
+
+	h5 { 
+	   font-size:0.9em; 
+	}
+
+	h6 { 
+	   font-size:0.8em; 
+	}
+
+	a:visited {
+	   color: rgb(50%, 0%, 50%);
+	}
+
+	pre {	
+	   margin-top: 0;
+	   max-width: 95%;
+	   border: 1px solid #ccc;
+	   white-space: pre-wrap;
+	}
+
+	pre code {
+	   display: block; padding: 0.5em;
+	}
+
+	code.r, code.cpp {
+	   background-color: #F8F8F8;
+	}
+
+	table, td, th {
+	  border: none;
+	}
+
+	blockquote {
+	   color:#666666;
+	   margin:0;
+	   padding-left: 1em;
+	   border-left: 0.5em #EEE solid;
+	}
+
+	hr {
+	   height: 0px;
+	   border-bottom: none;
+	   border-top-width: thin;
+	   border-top-style: dotted;
+	   border-top-color: #999999;
+	}
+
+	@media print {
+	   * { 
+	      background: transparent !important; 
+	      color: black !important; 
+	      filter:none !important; 
+	      -ms-filter: none !important; 
+	   }
+
+	   body { 
+	      font-size:12pt; 
+	      max-width:100%; 
+	   }
+       
+	   a, a:visited { 
+	      text-decoration: underline; 
+	   }
+
+	   hr { 
+	      visibility: hidden;
+	      page-break-before: always;
+	   }
+
+	   pre, blockquote { 
+	      padding-right: 1em; 
+	      page-break-inside: avoid; 
+	   }
+
+	   tr, img { 
+	      page-break-inside: avoid; 
+	   }
+
+	   img { 
+	      max-width: 100% !important; 
+	   }
+
+	   @page :left { 
+	      margin: 15mm 20mm 15mm 10mm; 
+	   }
+     
+	   @page :right { 
+	      margin: 15mm 10mm 15mm 20mm; 
+	   }
+
+	   p, h2, h3 { 
+	      orphans: 3; widows: 3; 
+	   }
+
+	   h2, h3 { 
+	      page-break-after: avoid; 
+	   }
+	}
+
+	</style>
+
+	<!-- Styles for R syntax highlighter -->
+	<style type="text/css">
+	   pre .operator,
+	   pre .paren {
+	     color: rgb(104, 118, 135)
+	   }
+
+	   pre .literal {
+	     color: rgb(88, 72, 246)
+	   }
+
+	   pre .number {
+	     color: rgb(0, 0, 205);
+	   }
+
+	   pre .comment {
+	     color: rgb(76, 136, 107);
+	   }
+
+	   pre .keyword {
+	     color: rgb(0, 0, 255);
+	   }
+
+	   pre .identifier {
+	     color: rgb(0, 0, 0);
+	   }
+
+	   pre .string {
+	     color: rgb(3, 106, 7);
+	   }
+	</style>
+
+	<!-- R syntax highlighter -->
+<!-- R syntax highlighter -->
+<link rel="stylesheet" href="resources/stylesheets/styles/xcode.css?rwcache=500169726">
+<script src="resources/javascripts/highlight/highlight.pack.js?rwcache=500169726"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-------------------------->
+	</script>
+
+
+
+</head>
+
+
+	<!--[if lt IE 9]>
+	  <script src="rw_common/themes/foundation/ie8.js"></script>
+	<![endif]-->
+
+			<link rel='stylesheet' type='text/css' media='all' href='rw_common/plugins/stacks/stacks.css?rwcache=500169726' />
+		<link rel='stylesheet' type='text/css' media='all' href='files/stacks_page_page0.css?rwcache=500169726' />
+		<script type='text/javascript' charset='utf-8' src='rw_common/plugins/stacks/jquery-2.2.4.min.js?rwcache=500169726'></script>
+		
+		
+		<script type='text/javascript' charset='utf-8' src='files/stacks_page_page0.js?rwcache=500169726'></script>
+		<meta class="stacks3 stack version" id="com.stacks4stacks.stacks.embed" name="Embed" content="2.0.1">
+		
+
+	
+</head>
+
+<body class="antialiased">
+
+<div id="foundation-loader" class="loader"></div>
+<script>
+if(window.foundationloader === true){
+var loader_inner = document.createElement('div'),
+loader_class = window.loader_class||'line-scale',
+loader_count = window.loader_count||5;
+loader_inner.className = 'loader-inner '+loader_class;
+for (var i = 0; i < loader_count; i++){loader_inner.appendChild(document.createElement('div'));}
+document.getElementById('foundation-loader').appendChild(loader_inner);}
+</script>
+
+
+<div id='stacks_out_1_page0' class='stacks_top'><div id='stacks_in_1_page0' class=''><div id='stacks_out_2_page0' class='stacks_out'><div id='stacks_in_2_page0' class='stacks_in html_stack'><!DOCTYPE html>
+<html>
+  <head>
+<!———————————————————————————————————————————————————————>
+  </head>
+
+  <body>
+
+<!———————————————————————————————————————————————————————>
+<!-- HEADER -->
+   <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/PJordano-Lab/MS_Carine">View on GitHub</a>
+
+          <h1 id="project_title">Atlantic Forest metanetwork in D3</h1>
+          <h2 id="project_tagline">This is a D3 representation of plant-animal interaction networks, as they assemble through different rainforest fragmented areas in SE Brazil. You can explore interactively the network, as explained below.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/PJordano-Lab/MS_Carine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/PJordano-Lab/MS_Carine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+
+        </header>
+ </div>
+<!———————————————————————————————————————————————————————>
+<!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h3>Interactions of plants and frugivorous birds as a D3 network</h3>
+
+<p>Bird-plant interactions for seed dispersal (BSD) are organized as within-fragment networks of interactions, conforming a spatial metanetwork of local assemblages. In these networks, the most central nodes are the fragments (a total of 16 in SE Brazil), while the numerous nodes surrounding them are the interactions recorded in each fragment.  Here we are depicting the interactions (i.e., the presence of an interaction) of just the frugivorous bird species and the fruiting plants. </p>
+
+<p>The study areas are forest fragments that varied from 0.66 to 42,000 ha, in a gradient of disturbance from semi-pristine Biological Reserves and State Parks to secondary forest fragments and restored private land. The metanetwork plant-frugivore assemblage includes 335 plant species interacting with 175 bird species across 16 studied fragments of the Atlantic Forest. Combined, they comprised a total of 2591 distinct bird seed-dispersal interactions of which only 201 (7.76%) were recorded in at least two fragments. The rest are exclusive from a given area and are readily seen as the "fan"-shaped groups of nodes in the metanetwork. The interactions on the links are potential "connector" interactions, presumably contirbuting to the cohesiveness of the metanetwork. </p>
+
+<p>You can interact with the graphs moving selected nodes (click and drag) of the network and visualizing how the whole web reshapes, indicating the overall effect of a particular interaction or a specific fragment. Also, hovering the mouse over a node highlights the latin species names of the partner species or the area name for the fragments. Just reload the page to reorder. The ordination of the network is done with an energy-minimization algorithm. You can refresh the layout by reloading the page or with <code>ctrl-rightclick-Reload</code> within each frame. </p>
+
+
+</body>
+</html>
+
+
+</div></div><div id='stacks_out_21_page0' class='stacks_out'><div id='stacks_in_21_page0' class='stacks_in stack_stack'><div id='stacks_out_17_page0' class='stacks_out'><div id='stacks_in_17_page0' class='stacks_in text_stack'><span id='stacks_in_18_page0'><p style="text-align:center;"><span style="font-size:14px; color:#292929;font-weight:bold; ">Atlantic Forest, SE Brazil</span></p></span></div></div><div id='stacks_out_11_page0' class='stacks_out'><div id='stacks_in_11_page0' class='stacks_in com_stacks4stacks_stacks_embed_stack'><!-- Embed Stack by Will Woodgate. Visit http://stacks4stacks.com for more information -->
+
+<div id="embedWrapperstacks_in_11_page0" class="embedWrapper">
+	
+	
+	
+	
+	
+	
+	<iframe src="resources/Frugivore_webs_files/meta_200.html" id="embedIframestacks_in_11_page0" class="embedIframe"></iframe>
+	
+	
+	
+	
+	
+	
+	
+	
+</div><!--/embedWrapper--></div></div></div></div><div id='stacks_out_15_page0' class='stacks_out'><div id='stacks_in_15_page0' class='stacks_in html_stack'><!DOCTYPE html>
+<html>
+  <body>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+<h2>Suggested references:</h2>
+
+<ul>
+    <li>This page accompanies:
+        Emer, C., Pizo, M.A., Ribeiro, M.C., Moraes, S., Piratelli, A., Galetti, M. and Jordano, P. 2017. A meta-network of bird seed dispersal interactions in a tropical biodiversity hotspot. In prep.
+        
+    <li>Based in <a href="http://bost.ocks.org/mike/">Mike Bostock's</a> <a href="http://d3js.org/">D3.js</a>, and <a href="http://christophergandrud.github.io/networkD3/">networkD3 code</a> in <a href="http://www.r-project.org/">R</a> by <a href="http://christophergandrud.blogspot.com/p/biocontact.html">Christopher Gandrud</a>. These are great tools for creating interactive network graphs with JavaScript. But we still need some work to get them used for bipartite networks.
+</ul>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+</div></div></div></div>
+
+
+<script src="rw_common/themes/foundation/foundation.js?rwcache=500169726"></script>
+
+
+<!--[if lt IE 9]>
+  <script src="rw_common/themes/foundation/ie8rem.js"></script>
+<![endif]-->
+
+</body>
+</html>
