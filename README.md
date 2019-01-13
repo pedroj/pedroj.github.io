@@ -1,4 +1,4 @@
-[pedroj.github.io](http://pedroj.github.io/)
+[pjordanolab.github.io](http://pedroj.github.io/)
 =================
 
 Pages repository
