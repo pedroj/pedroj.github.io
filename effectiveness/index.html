@@ -340,11 +340,12 @@ library(effect.lndscp)
 # quantitative component, plotting its two subcomponents, visitation 
 # rate and per-visit effectiveness.
 #
+
 data(prunus)
-effectiveness(prunus$visits, prunus$eff_per_vis, 
-   prunus$group, prunus$animal, 10, 
-   myxlab= "No. visits/10h", 
-   myylab="Effectiveness/vis (No. fruits handled)")
+effectiveness_plot(prunus$visits, prunus$eff_per_vis, 
+   pts.shape = prunus$group, label = prunus$animal,  
+   myxlab = "No. visits/10h", 
+   myylab = "Effectiveness/vis (No. fruits handled)")
 #--------------------------------------------------------------------
 # Based on a dataset of Cecropia glaziovii frugivores.
 # This effectiveness_plot function has repel labels activated.
